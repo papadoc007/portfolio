@@ -6,13 +6,7 @@ export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
 }
 
-function TraceDiagram() {
-  const nodes = [
-    { label: "Victim wallets", sub: "BTC + ETH" },
-    { label: "Counterparty", sub: "2 transfers · 11 min apart" },
-    { label: "Consolidation", sub: "hop-by-hop tracing" },
-    { label: "KYC exchanges", sub: "2 custodial endpoints" },
-  ];
+function FlowDiagram({ nodes }: { nodes: { label: string; sub: string }[] }) {
   return (
     <div className="flex flex-col gap-2 overflow-x-auto sm:flex-row sm:items-center">
       {nodes.map((n, i) => (
@@ -94,12 +88,22 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
           <p className="leading-relaxed">{cs.summary}</p>
         </div>
 
-        <div>
-          <h2 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted">
-            {cs.slug === "tracing-14k-across-two-chains" ? "Flow of funds" : "Evaluation matrix"}
-          </h2>
-          {cs.slug === "tracing-14k-across-two-chains" ? <TraceDiagram /> : <Scoreboard />}
-        </div>
+        {cs.flow ? (
+          <div>
+            <h2 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted">
+              Flow of funds
+            </h2>
+            <FlowDiagram nodes={cs.flow} />
+          </div>
+        ) : null}
+        {cs.slug === "red-teaming-frontier-llm-agents" ? (
+          <div>
+            <h2 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted">
+              Evaluation matrix
+            </h2>
+            <Scoreboard />
+          </div>
+        ) : null}
 
         <div>
           <h2 className="mb-3 font-mono text-xs uppercase tracking-widest text-muted">Method</h2>

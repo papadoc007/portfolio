@@ -158,6 +158,7 @@ export type CaseStudy = {
   period: string;
   classification: string;
   summary: string;
+  flow?: { label: string; sub: string }[];
   method: string[];
   findings: { label: string; value: string }[];
   deliverables: string[];
@@ -174,6 +175,12 @@ export const caseStudies: CaseStudy[] = [
     classification: "SANITIZED FOR PUBLIC RELEASE — no client data, no addresses",
     summary:
       "In May 2022, a victim sent two transfers to an unidentified counterparty within 11 minutes: 0.4806 BTC (≈$14,156) at 18:42 and 600 USDT on Ethereum (≈$608) at 18:53 — $14,764 total. Four years later, both flows were reconstructed hop-by-hop across two chains. Both terminated at custodial exchanges that enforce identity verification: the funds reached accounts that a legal process can put a name to.",
+    flow: [
+      { label: "Victim wallets", sub: "BTC + ETH" },
+      { label: "Counterparty", sub: "2 transfers · 11 min apart" },
+      { label: "Consolidation", sub: "hop-by-hop tracing" },
+      { label: "KYC exchanges", sub: "2 custodial endpoints" },
+    ],
     method: [
       "UTXO tracing and address clustering on the Bitcoin flow",
       "ERC-20 (USDT) flow analysis on the Ethereum side",
@@ -218,6 +225,76 @@ export const caseStudies: CaseStudy[] = [
       "Scenario packs with scoring rubrics",
       "Break ledgers documenting every run and verdict",
       "Model-comparison reports and hardening recommendations",
+    ],
+  },
+  {
+    slug: "eleven-drainer-daas-investigation",
+    fileNo: "CF-TI-ELEVEN",
+    title: "Eleven Drainer: Anatomy of a $4.2M DaaS",
+    subtitle:
+      "Threat-intelligence investigation of a Drainer-as-a-Service operation that stole $4.2M+ in its first three weeks — from Russian-language forum ads to on-chain fee flows.",
+    period: "Investigation: Feb 2026",
+    classification: "THREAT-ACTOR PROFILE — from my original CTI report; raw IOCs withheld here",
+    summary:
+      "Eleven Drainer surfaced in late 2025 and drained over $4.2M within three weeks. I built a full threat-actor profile: tracked the operators across the XSS cybercrime forum, Telegram and X; translated their Russian-language advertisements; reconstructed the event timeline from first ENS activity through the Aerodrome/Velodrome DNS-hijacking incident; and verified the advertised affiliate revenue split against actual on-chain distributions. The advertised 15–20% operator fee matched the recorded splits — hard on-chain corroboration of the DaaS business model, supporting a High-confidence attribution.",
+    flow: [
+      { label: "Victim wallet", sub: "phishing / dApp clone" },
+      { label: "Drainer toolkit", sub: "'Eleven Priority' asset logic" },
+      { label: "Affiliate wallets", sub: "80–85% of proceeds" },
+      { label: "Operator wallets", sub: "15–20% fee · verified on-chain" },
+    ],
+    method: [
+      "Dark-forum monitoring (XSS) and Telegram/X SOCMINT on operator channels",
+      "Translation and analysis of Russian-language operator advertisements",
+      "ENS and wallet attribution of operator and admin-recipient addresses",
+      "On-chain verification of the advertised revenue split against recorded distributions",
+      "Structured credibility assessment across independent source types",
+    ],
+    findings: [
+      { label: "Losses", value: "$4.2M+ stolen in the first three weeks of operation" },
+      { label: "Origin", value: "Russia-based / CIS — ANTI-CIS targeting exclusions, Russian-language ops" },
+      { label: "Business model", value: "DaaS: affiliates keep 80–85%, operator retains 15–20% — split verified on-chain" },
+      { label: "TTPs", value: "Wallet-security bypasses (MetaMask · OKX · Rabby), automated asset-draining priority logic, high-fidelity dApp phishing clones, DNS hijacking (Aerodrome/Velodrome incident)" },
+    ],
+    deliverables: [
+      "Full threat-intelligence report: timeline, TTPs, credibility assessment",
+      "IOC set — operator and admin wallets, ENS names, forum handles",
+      "Translated threat-actor advertisement appendix",
+    ],
+  },
+  {
+    slug: "profiling-305m-distribution-hub",
+    fileNo: "CF-2602-ETH",
+    title: "Profiling a $305M Distribution Hub",
+    subtitle:
+      "A client handed over one Ethereum address. Behind it: a three-layer funding chain rooted in a single Binance account, and 28,000+ transfers moving $305M.",
+    period: "Investigation: Feb 2026",
+    classification: "SANITIZED FOR PUBLIC RELEASE — client, counterparty and addresses withheld",
+    summary:
+      "A client asked for a forensic profile of a single Ethereum address tied to a contractual dispute. Combining TRM Labs analysis with bulk transfer-log processing (30,000+ records), the address resolved into a high-volume distribution hub: $305M across 28,625+ transfers in roughly 25 months, rated SEVERE with 26 risk indicators. First-funding analysis exposed a three-layer funding chain in which every layer traces back to one Binance exchange account. Counterparties included major regulated exchanges and payment processors — all holding KYC records reachable by legal process. Separately, 14 payments totaling $6.06M to the counterparty in the client's dispute were verified on-chain, with dates aligning to the dispute timeline.",
+    flow: [
+      { label: "Binance account", sub: "single origin of the chain" },
+      { label: "Layer 1", sub: "$8.3M volume" },
+      { label: "Layer 2", sub: "$927M volume" },
+      { label: "Subject hub", sub: "$305M · 28,625+ transfers" },
+    ],
+    method: [
+      "TRM Labs block-explorer analysis and risk-indicator review",
+      "First-funding chain reconstruction across three wallet layers",
+      "Bulk transfer-log analysis (30,000+ records), filtering phishing-token noise",
+      "Counterparty classification and KYC-endpoint mapping (exchanges, payment processors)",
+      "On-chain verification of dispute-related payments against the contractual timeline",
+    ],
+    findings: [
+      { label: "Volume", value: "$305M across 28,625+ transfers in ~25 months" },
+      { label: "Funding chain", value: "3 layers — every layer first-funded from a single Binance account" },
+      { label: "Risk profile", value: "TRM SEVERE — 26 risk indicators" },
+      { label: "Dispute payments", value: "14 payments · $6.06M · dates align with the contractual dispute" },
+    ],
+    deliverables: [
+      "Blockchain forensics report with reproducible on-chain evidence",
+      "Wallet-identity report and phishing-token analysis appendix",
+      "Subpoena-ready list of KYC endpoints for legal follow-up",
     ],
   },
 ];
