@@ -104,7 +104,12 @@ export default async function Home() {
             >
               <div className="flex items-baseline justify-between">
                 <span className="font-mono text-xs text-accent">{p.index}</span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-muted">
+                <span className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-muted">
+                  {p.liveUrl ? (
+                    <span className="flex items-center gap-1 text-accent">
+                      <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-accent" /> live
+                    </span>
+                  ) : null}
                   {p.visibility}
                 </span>
               </div>

@@ -5,6 +5,7 @@ export type Project = {
   tagline: string;
   stack: string[];
   repo?: string;
+  liveUrl?: string;
   visibility: "public" | "private";
   problem: string;
   approach: string;
@@ -111,6 +112,7 @@ export const projects: Project[] = [
       "Pre-registered LLM benchmark measuring which geopolitical rivalries models volunteer — across 17 languages and 12 models.",
     stack: ["Python", "LLM Evaluation", "Statistics"],
     repo: "https://github.com/papadoc007/geopolitical-salience-benchmark",
+    liveUrl: "https://gsb-puce.vercel.app/#explore",
     visibility: "public",
     problem:
       "Do LLMs surface different geopolitical rivalries depending on the language you ask in — or does the model itself carry the bias?",
@@ -122,8 +124,8 @@ export const projects: Project[] = [
       "Cross-model and cross-language salience comparison",
     ],
     outcome:
-      "Headline finding: model identity beats prompt language — what a model volunteers depends on which model it is, far more than on the language of the question.",
-    screenshots: [],
+      "Headline finding: model identity beats prompt language — what a model volunteers depends on which model it is, far more than on the language of the question. The live explorer re-runs the headline statistic in your browser over any slice of languages and models you pick.",
+    screenshots: ["/screenshots/gsb-explore.png"],
   },
   {
     slug: "hokwatch-knesset-legislation",
@@ -132,6 +134,7 @@ export const projects: Project[] = [
     tagline:
       "Public site tracking Israeli legislation, votes and Knesset members in plain Hebrew — every claim linked to an official source, AI explanations gated by human review.",
     stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind 4", "Multi-provider AI pipeline", "GitHub Actions"],
+    liveUrl: "https://hok-b-seder.com",
     visibility: "private",
     problem:
       "Knowing what the Knesset is doing means reading 40 pages of legalese per bill. Most citizens never do.",
@@ -145,8 +148,8 @@ export const projects: Project[] = [
       "Accessibility to IS 5568 / WCAG 2.0 AA, full RTL",
     ],
     outcome:
-      "MVP built end-to-end — data layer, site, and self-updating AI explanation pipeline — heading toward public launch.",
-    screenshots: [],
+      "Live at hok-b-seder.com — data layer, public site, and a self-updating AI explanation pipeline that refreshes plain-language summaries daily.",
+    screenshots: ["/screenshots/hokwatch-home.png"],
   },
 ];
 

@@ -33,6 +33,14 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
         <span className="rounded bg-panel-2 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-muted">
           {project.visibility}
         </span>
+        {project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            className="flex items-center gap-1.5 rounded border border-accent bg-accent-dim px-3 py-1 font-mono text-xs text-accent hover:bg-accent hover:text-background"
+          >
+            <span className="pulse-dot h-1.5 w-1.5 rounded-full bg-current" /> Live site →
+          </a>
+        ) : null}
         {project.repo ? (
           <a href={project.repo} className="font-mono text-xs text-accent hover:underline">
             View repo →
@@ -77,9 +85,9 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
                   key={src}
                   src={src}
                   alt={`${project.name} screenshot`}
-                  width={1400}
-                  height={800}
-                  className="rounded-lg border border-border"
+                  width={1440}
+                  height={900}
+                  className="h-auto w-full rounded-lg border border-border"
                 />
               ))}
             </div>
