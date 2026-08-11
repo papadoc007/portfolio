@@ -10,7 +10,7 @@ export const experience = [
     company: "Critical Impact",
     location: "Tel Aviv, IL",
     role: "Cyber Threat Intelligence & AI Development Specialist",
-    period: "2025 — Present",
+    period: "2025 - Present",
     bullets: [
       "Threat intelligence, OSINT and dark-web investigations into ransomware operators and cybercriminal ecosystems.",
       "Built AI/LLM-driven intelligence workflows and an AI-powered ransomware CTI platform integrating OSINT and dark-web sources.",
@@ -22,7 +22,7 @@ export const experience = [
     company: "Qmasters",
     location: "Tel Aviv, IL",
     role: "Cyber Security Analyst",
-    period: "2024 — 2025",
+    period: "2024 - 2025",
     bullets: [
       "Investigated suspicious activity by correlating cross-platform security data into actionable intelligence.",
       "Queried large security datasets across QRadar, CrowdStrike and Microsoft Defender; tuned detection logic.",
@@ -33,7 +33,7 @@ export const experience = [
     company: "ANSYS",
     location: "Holon, IL",
     role: "Technical Support Analyst",
-    period: "2023 — 2024",
+    period: "2023 - 2024",
     bullets: ["Resolved technical issues for a global user base in a fast-paced enterprise environment."],
   },
 ];
@@ -88,8 +88,8 @@ export const toolbox = [
 export const education = [
   {
     name: "Bar-Ilan University",
-    detail: "B.A. Technology Management · 2023–2026",
-    note: "Final project: cryptocurrency threat intelligence and blockchain investigations — transaction tracing, wallet analysis, threat-infrastructure assessment.",
+    detail: "B.A. Technology Management · 2023-2026",
+    note: "Final project: cryptocurrency threat intelligence and blockchain investigations - transaction tracing, wallet analysis, threat-infrastructure assessment.",
   },
   {
     name: "Kernelios",
@@ -99,6 +99,6 @@ export const education = [
 ];
 
 export const certifications = [
-  "TRM Academy — TRM Forensics Mastery Series (2026)",
-  "Linux Professional Institute — Linux Essentials",
+  "TRM Academy - TRM Forensics Mastery Series (2026)",
+  "Linux Professional Institute - Linux Essentials",
 ];

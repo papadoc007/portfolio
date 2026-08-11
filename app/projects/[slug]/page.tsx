@@ -19,7 +19,7 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
       </Link>
 
       <p className="mt-10 font-mono text-xs uppercase tracking-[0.25em] text-accent">
-        Flagship Project — {project.index}
+        Flagship Project - {project.index}
       </p>
       <h1 className="mt-2 text-4xl font-medium sm:text-5xl">{project.name}</h1>
       <p className="mt-4 text-lg leading-relaxed text-muted">{project.tagline}</p>

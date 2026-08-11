@@ -94,7 +94,7 @@ export default async function Home() {
 
       {/* Flagship projects */}
       <section className="mx-auto max-w-5xl px-5 py-20">
-        <SectionHeader id="work" kicker="01 — Flagship Projects" title="Built to investigate" />
+        <SectionHeader id="work" kicker="01 - Flagship Projects" title="Built to investigate" />
         <div className="grid gap-4 sm:grid-cols-2">
           {projects.map((p) => (
             <Link
@@ -130,7 +130,7 @@ export default async function Home() {
       {/* Case studies */}
       <section className="border-y border-border bg-panel/40">
         <div className="mx-auto max-w-5xl px-5 py-20">
-          <SectionHeader id="case-files" kicker="02 — Case Files" title="Real investigations, sanitized" />
+          <SectionHeader id="case-files" kicker="02 - Case Files" title="Real investigations, sanitized" />
           <div className="grid gap-4 md:grid-cols-2">
             {caseStudies.map((c) => (
               <Link
@@ -154,7 +154,7 @@ export default async function Home() {
       {/* Experience */}
       <section className="border-y border-border bg-panel/40">
         <div className="mx-auto max-w-5xl px-5 py-20">
-          <SectionHeader id="experience" kicker="03 — Experience" title="Where I've operated" />
+          <SectionHeader id="experience" kicker="03 - Experience" title="Where I've operated" />
           <ol className="space-y-10 border-l border-border pl-6">
             {experience.map((e) => (
               <li key={e.company} className="relative">
@@ -167,7 +167,7 @@ export default async function Home() {
                 <ul className="mt-3 space-y-1.5">
                   {e.bullets.map((b) => (
                     <li key={b} className="text-sm leading-relaxed text-muted">
-                      — {b}
+                      - {b}
                     </li>
                   ))}
                 </ul>
@@ -179,7 +179,7 @@ export default async function Home() {
 
       {/* Skills + Education */}
       <section className="mx-auto max-w-5xl px-5 py-20">
-        <SectionHeader id="skills" kicker="04 — Toolbox" title="What I work with" />
+        <SectionHeader id="skills" kicker="04 - Toolbox" title="What I work with" />
         <div className="grid gap-4 sm:grid-cols-2">
           {toolbox.map((t) => (
             <div key={t.domain} className="rounded-lg border border-border bg-panel p-5">
@@ -215,7 +215,7 @@ export default async function Home() {
             <ul className="space-y-2">
               {certifications.map((c) => (
                 <li key={c} className="text-sm text-muted">
-                  — {c}
+                  - {c}
                 </li>
               ))}
             </ul>
@@ -226,7 +226,7 @@ export default async function Home() {
       {/* Contact */}
       <footer id="contact" className="border-t border-border bg-panel/40">
         <div className="mx-auto max-w-5xl px-5 py-16">
-          <p className="mb-2 font-mono text-xs uppercase tracking-[0.25em] text-accent">06 — Contact</p>
+          <p className="mb-2 font-mono text-xs uppercase tracking-[0.25em] text-accent">06 - Contact</p>
           <h2 className="text-3xl font-medium">Let&apos;s talk.</h2>
           <div className="mt-6 flex flex-wrap gap-3">
             <a href={`mailto:${links.email}`} className="rounded border border-accent bg-accent-dim px-4 py-2 font-mono text-sm text-accent hover:bg-accent hover:text-background">
@@ -240,7 +240,7 @@ export default async function Home() {
             </a>
           </div>
           <p className="mt-10 font-mono text-[11px] text-muted">
-            Case files are sanitized — no client names, no wallet addresses.
+            Case files are sanitized - no client names, no wallet addresses.
           </p>
         </div>
       </footer>

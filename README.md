@@ -1,6 +1,6 @@
-# itai-raz — portfolio
+# itai-raz - portfolio
 
-Personal portfolio for Itai Raz — Fraud & Data Researcher (CTI · Blockchain Forensics · AI Evaluation).
+Personal portfolio for Itai Raz - Fraud & Data Researcher (CTI · Blockchain Forensics · AI Evaluation).
 
 Next.js 15 (App Router) + Tailwind, deployed on Vercel. The hero's public-repo count is pulled live from the GitHub API with daily ISR revalidation.
 
@@ -19,7 +19,7 @@ npm run dev
 
 ## Structure
 
-- `data/projects.ts` — flagship projects + sanitized case studies (curated, includes private-repo work)
-- `data/experience.ts` — CV data: experience, toolbox, education, links
-- `lib/github.ts` — live GitHub profile fetch (REST, ISR 24h)
-- `UX_UI_AGENT_PROMPT.md` — design brief for the UX/UI agent
+- `data/projects.ts` - flagship projects + sanitized case studies (curated, includes private-repo work)
+- `data/experience.ts` - CV data: experience, toolbox, education, links
+- `lib/github.ts` - live GitHub profile fetch (REST, ISR 24h)
+- `UX_UI_AGENT_PROMPT.md` - design brief for the UX/UI agent
