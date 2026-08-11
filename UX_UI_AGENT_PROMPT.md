@@ -30,17 +30,17 @@ terminal that went to design school. Fully responsive; must be excellent on mobi
 
 ### 2. Flagship Projects — 5 cards, each opens a detail page
 Card = name, one-liner, tech chips, thumbnail screenshot area, link.
-1. **Blockchain Investigation Platform (Cripto_ir)** — Ethereum tracing, cash-flow
+1. **Blockchain Investigation Platform** — Ethereum tracing, cash-flow
    graphs, first-funder identification, AI query layer where the LLM plans and
    deterministic code computes. React+TS.
 2. **Ransomware CTI Platform (ctiRE)** — FastAPI + React + Supabase platform
    integrating OSINT and dark-web intelligence on ransomware operators.
-3. **Sanctions Clearance Agent** — AI-assisted ransomware-payment sanctions
-   screening with deterministic human-review gates.
-4. **Regulatory News Intelligence (hokwatch)** — Next.js legal/regulatory
+3. **Regulatory News Intelligence** — FastAPI legal/regulatory
    monitoring: semantic search (pgvector), AI summaries, Hebrew RTL support.
-5. **Geopolitical Salience Benchmark (GSB)** — pre-registered LLM benchmark,
+4. **Geopolitical Salience Benchmark (GSB)** — pre-registered LLM benchmark,
    17 languages × 12 models; "model identity beats prompt language".
+5. **חוקWatch — Knesset Legislation Monitor** — live at hok-b-seder.com;
+   plain-Hebrew bill/vote tracking with a self-updating AI explanation pipeline.
 Detail page layout: problem → approach → architecture diagram slot →
 screenshots gallery → outcome/metrics → stack → repo link (if public).
 

@@ -22,8 +22,7 @@ export const projects: Project[] = [
     tagline:
       "Full-stack Ethereum forensics: transaction tracing, cash-flow graphs, and an AI layer that plans queries while deterministic code computes the numbers.",
     stack: ["React", "TypeScript", "Node.js", "Etherscan API", "LLM"],
-    repo: "https://github.com/papadoc007/Cripto_ir",
-    visibility: "public",
+    visibility: "private",
     problem:
       "Blockchain investigations drown analysts in raw transaction data. Manual tracing across thousands of transfers is slow, and letting an LLM compute financial results directly invites hallucinated findings.",
     approach:
@@ -63,30 +62,8 @@ export const projects: Project[] = [
     screenshots: [{ src: "/screenshots/ctire-financial.png", w: 1425, h: 993 }],
   },
   {
-    slug: "sanctions-clearance-agent",
-    index: "03",
-    name: "Sanctions Clearance Agent",
-    tagline:
-      "AI-assisted sanctions screening for ransomware payments — blockchain intelligence, sanctions data, and TRM findings behind deterministic human-review gates.",
-    stack: ["Node.js", "LLM", "Blockchain Intelligence", "TRM"],
-    visibility: "private",
-    problem:
-      "Before a ransomware payment can even be considered, counsel needs a defensible answer to one question: does any address in the flow touch a sanctioned entity? The answer must be fast, documented, and never left to an AI's judgment alone.",
-    approach:
-      "An agent workflow that combines blockchain intelligence, sanctions datasets, ransomware research and TRM findings — with deterministic human-review gates at every decision that matters. AI accelerates the research; humans sign off on the clearance.",
-    capabilities: [
-      "Automated collection of sanctions exposure across payment-flow addresses",
-      "Cross-referencing of ransomware-group research and TRM intelligence",
-      "Deterministic gates that force human review before any clearance conclusion",
-      "Audit-ready output for legal and compliance stakeholders",
-    ],
-    outcome:
-      "Compresses hours of manual sanctions research into a documented, reviewable workflow.",
-    screenshots: [],
-  },
-  {
     slug: "regulatory-news-intelligence",
-    index: "04",
+    index: "03",
     name: "Regulatory News Intelligence",
     tagline:
       "Legal & regulatory monitoring platform: semantic search, AI summaries, and article-level Q&A — with full Hebrew RTL support.",
@@ -108,7 +85,7 @@ export const projects: Project[] = [
   },
   {
     slug: "geopolitical-salience-benchmark",
-    index: "05",
+    index: "04",
     name: "Geopolitical Salience Benchmark",
     tagline:
       "Pre-registered LLM benchmark measuring which geopolitical rivalries models volunteer — across 17 languages and 12 models.",
@@ -131,7 +108,7 @@ export const projects: Project[] = [
   },
   {
     slug: "hokwatch-knesset-legislation",
-    index: "06",
+    index: "05",
     name: "חוקWatch — Knesset Legislation Monitor",
     tagline:
       "Public site tracking Israeli legislation, votes and Knesset members in plain Hebrew — every claim linked to an official source, AI explanations gated by human review.",

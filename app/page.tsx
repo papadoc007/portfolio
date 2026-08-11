@@ -83,7 +83,7 @@ export default async function Home() {
           </div>
           <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {profile ? (
-              <StatTile live value={String(profile.public_repos)} label="public repos · live" />
+              <StatTile value={String(profile.public_repos)} label="public repos on GitHub" />
             ) : null}
             <StatTile value="100+" label="adversarial eval runs" />
             <StatTile value="$14.7K" label="traced cross-chain" />
@@ -240,8 +240,7 @@ export default async function Home() {
             </a>
           </div>
           <p className="mt-10 font-mono text-[11px] text-muted">
-            This site pulls live data from my GitHub. Case files are sanitized — no client
-            names, no wallet addresses.
+            Case files are sanitized — no client names, no wallet addresses.
           </p>
         </div>
       </footer>
