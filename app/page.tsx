@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { GitHubSection } from "@/components/github";
 import { getProfile } from "@/lib/github";
 import { caseStudies, projects } from "@/data/projects";
 import { certifications, education, experience, links, toolbox } from "@/data/experience";
@@ -28,7 +27,6 @@ function StatTile({ value, label, live }: { value: string; label: string; live?:
 const NAV = [
   ["Work", "#work"],
   ["Case Files", "#case-files"],
-  ["GitHub", "#github"],
   ["Experience", "#experience"],
   ["Contact", "#contact"],
 ] as const;
@@ -67,7 +65,7 @@ export default async function Home() {
           <p className="mt-6 max-w-2xl text-sm leading-relaxed text-muted">
             Fraud &amp; data researcher combining threat hunting, OSINT and dark-web
             investigations with blockchain forensics and adversarial evaluation of AI
-            agents. Ex-artillery captain. I build the tools I investigate with.
+            agents. I build the tools I investigate with.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#work" className="rounded border border-accent bg-accent-dim px-4 py-2 font-mono text-sm text-accent hover:bg-accent hover:text-background">
@@ -148,16 +146,10 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Live GitHub */}
-      <section className="mx-auto max-w-5xl px-5 py-20">
-        <SectionHeader id="github" kicker="03 — Live from GitHub" title="What I'm shipping" />
-        <GitHubSection />
-      </section>
-
       {/* Experience */}
       <section className="border-y border-border bg-panel/40">
         <div className="mx-auto max-w-5xl px-5 py-20">
-          <SectionHeader id="experience" kicker="04 — Experience" title="Where I've operated" />
+          <SectionHeader id="experience" kicker="03 — Experience" title="Where I've operated" />
           <ol className="space-y-10 border-l border-border pl-6">
             {experience.map((e) => (
               <li key={e.company} className="relative">
@@ -182,7 +174,7 @@ export default async function Home() {
 
       {/* Skills + Education */}
       <section className="mx-auto max-w-5xl px-5 py-20">
-        <SectionHeader id="skills" kicker="05 — Toolbox" title="What I work with" />
+        <SectionHeader id="skills" kicker="04 — Toolbox" title="What I work with" />
         <div className="grid gap-4 sm:grid-cols-2">
           {toolbox.map((t) => (
             <div key={t.domain} className="rounded-lg border border-border bg-panel p-5">

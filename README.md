@@ -2,7 +2,7 @@
 
 Personal portfolio for Itai Raz — Fraud & Data Researcher (CTI · Blockchain Forensics · AI Evaluation).
 
-Next.js 15 (App Router) + Tailwind, deployed on Vercel. Pulls live data from the GitHub API with daily ISR revalidation.
+Next.js 15 (App Router) + Tailwind, deployed on Vercel. The hero's public-repo count is pulled live from the GitHub API with daily ISR revalidation.
 
 ## Run
 
@@ -15,11 +15,11 @@ npm run dev
 
 | Var | Purpose |
 |---|---|
-| `GITHUB_TOKEN` | Optional. Read-only token enabling the contribution heatmap (GraphQL) and higher API rate limits. Without it the site still works — the heatmap is hidden. |
+| `GITHUB_TOKEN` | Optional. Read-only token that raises the GitHub API rate limit for the live repo count. The site works fine without it. |
 
 ## Structure
 
 - `data/projects.ts` — flagship projects + sanitized case studies (curated, includes private-repo work)
-- `data/experience.ts` — CV data: experience, skills, education, links
-- `lib/github.ts` — live GitHub fetchers (REST + GraphQL, ISR 24h)
+- `data/experience.ts` — CV data: experience, toolbox, education, links
+- `lib/github.ts` — live GitHub profile fetch (REST, ISR 24h)
 - `UX_UI_AGENT_PROMPT.md` — design brief for the UX/UI agent

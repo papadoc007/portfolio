@@ -36,16 +36,6 @@ export const experience = [
     period: "2023 — 2024",
     bullets: ["Resolved technical issues for a global user base in a fast-paced enterprise environment."],
   },
-  {
-    company: "IDF — Artillery Corps",
-    location: "Israel",
-    role: "Artillery Officer, Captain · Reserve since 2023",
-    period: "2018 — 2022",
-    bullets: [
-      "Led cross-branch operational investigations and coordination across governmental and operational entities.",
-      "In reserve: led a multi-country operational project across governmental, operational and technical stakeholders.",
-    ],
-  },
 ];
 
 export const toolbox = [

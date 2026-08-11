@@ -1,9 +1,9 @@
 # Design Brief — Portfolio Site for a Fraud & Data Researcher
 
 ## Who this is for
-Itai Raz — Cyber Threat Intelligence & AI Data Analyst. Ex-artillery captain (IDF),
-now doing ransomware/dark-web intelligence, blockchain forensics, and adversarial
-LLM evaluation. Audience: hiring managers and recruiters at fraud-intelligence,
+Itai Raz — Cyber Threat Intelligence & AI Data Analyst doing ransomware/dark-web
+intelligence, blockchain forensics, and adversarial LLM evaluation.
+Audience: hiring managers and recruiters at fraud-intelligence,
 crypto-compliance, and AI-security companies (TRM Labs, Chainalysis, security
 vendors, AI labs). The site must feel like the work: an intelligence product,
 not a template portfolio.
@@ -55,24 +55,21 @@ redaction-bar motifs (tasteful), findings table.
    across GPT/Claude/Gemini; 779 documented runs, LLM-as-Judge scoring,
    break/defend verdicts. Show a mock scoreboard component.
 
-### 4. Live GitHub
-Contribution heatmap (custom-styled to match theme, not the default green),
-language donut/bars, latest repos list. All fed by API — design loading and
-empty states.
-
-### 5. Experience timeline
+### 4. Experience timeline
 Critical Impact (CTI & AI Specialist, 2025–now) → Qmasters (Security Analyst,
-SIEM/EDR: QRadar, CrowdStrike, Defender, 2024–25) → ANSYS (2023–24) →
-IDF Artillery Officer, Captain (2018–22, reserve since 2023).
+SIEM/EDR: QRadar, CrowdStrike, Defender, 2024–25) → ANSYS (2023–24).
 Vertical timeline with mono date labels.
 
-### 6. Skills
-Two columns matching the CV: "AI & Data" (Python, SQL, LLM Evaluation,
-LLM-as-a-Judge, Adversarial Testing, n8n, Docker, Tableau) and "Cybersecurity"
-(CTI, Threat Hunting, OSINT, SOCMINT, Dark Web, IOC Analysis, SIEM/EDR,
-Blockchain Intelligence). Chips or a compact matrix — no skill bars.
+### 5. Toolbox
+Four domain cards with the real tools: "AI Engineering" (LLM agents, LLM-as-a-Judge,
+adversarial testing, Claude/GPT/Gemini APIs, RAG+pgvector), "Automation"
+(n8n, Python pipelines, GitHub Actions, Docker, bots, SQL), "Blockchain
+Investigation" (BTC UTXO tracing, EVM/ERC-20 flow analysis, address clustering,
+exchange attribution, TRM, sanctions screening), "CTI & OSINT" (dark-web
+collection, ransomware tracking, SOCMINT, QRadar/CrowdStrike/Defender, Shodan,
+IOC analysis). No skill bars.
 
-### 7. Education & Certifications
+### 6. Education & Certifications
 Bar-Ilan B.A. Technology Management (final project: crypto threat intel) ·
 Kernelios 450-hr cyber program · TRM Forensics Mastery Series (2026) ·
 LPI Linux Essentials.
