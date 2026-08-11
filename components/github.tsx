@@ -1,6 +1,16 @@
 import { getContributions, getRepos, languageStats } from "@/lib/github";
 import { links } from "@/data/experience";
 
+// curated — keeps coursework/exam-prep repos out of the spotlight
+const FEATURED_REPOS = [
+  "Cripto_ir",
+  "geopolitical-salience-benchmark",
+  "device-activity-tracker",
+  "airport-investment-intelligence",
+  "Open-source-tools-for-CTI",
+  "tridealgo",
+];
+
 const LEVEL_COLORS = [
   "rgba(45,212,191,0.06)",
   "rgba(45,212,191,0.25)",
@@ -12,7 +22,9 @@ const LEVEL_COLORS = [
 export async function GitHubSection() {
   const [repos, contributions] = await Promise.all([getRepos(), getContributions()]);
   const langs = languageStats(repos);
-  const latest = repos.slice(0, 6);
+  const latest = FEATURED_REPOS.map((n) => repos.find((r) => r.name === n)).filter(
+    (r): r is NonNullable<typeof r> => r !== undefined,
+  );
 
   return (
     <div className="space-y-10">
@@ -69,7 +81,7 @@ export async function GitHubSection() {
 
         <div>
           <h3 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted">
-            Recently pushed
+            Selected public repos
           </h3>
           {latest.length === 0 ? (
             <p className="text-sm text-muted">

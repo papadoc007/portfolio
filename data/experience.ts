@@ -48,18 +48,52 @@ export const experience = [
   },
 ];
 
-export const skills = {
-  "AI & Data": [
-    "Python", "SQL", "Data Analysis", "Prompt Engineering", "LLM Evaluation",
-    "AI Agents", "LLM-as-a-Judge", "Adversarial Testing", "Data Pipelines",
-    "n8n Automation", "Docker", "Tableau",
-  ],
-  Cybersecurity: [
-    "Cyber Threat Intelligence", "Threat Hunting", "OSINT", "SOCMINT",
-    "Dark Web Research", "IOC Analysis", "Incident Response", "SIEM / EDR",
-    "Blockchain Intelligence", "Transaction Analysis", "Networking", "Linux",
-  ],
-};
+export const toolbox = [
+  {
+    domain: "AI Engineering",
+    tools: [
+      "LLM agents & multi-agent pipelines",
+      "LLM-as-a-Judge evaluation",
+      "Adversarial testing & red-teaming",
+      "Claude · GPT · Gemini APIs",
+      "RAG + pgvector embeddings",
+      "Prompt engineering",
+    ],
+  },
+  {
+    domain: "Automation",
+    tools: [
+      "n8n workflows",
+      "Python data pipelines",
+      "GitHub Actions",
+      "Docker",
+      "Telegram / WhatsApp bots",
+      "SQL",
+    ],
+  },
+  {
+    domain: "Blockchain Investigation",
+    tools: [
+      "BTC UTXO tracing",
+      "EVM / ERC-20 flow analysis",
+      "Address clustering",
+      "Exchange attribution",
+      "TRM Forensics",
+      "Sanctions screening",
+    ],
+  },
+  {
+    domain: "CTI & OSINT",
+    tools: [
+      "Dark-web collection",
+      "Ransomware operator tracking",
+      "SOCMINT",
+      "QRadar · CrowdStrike · Defender",
+      "Shodan",
+      "IOC analysis",
+    ],
+  },
+];
 
 export const education = [
   {

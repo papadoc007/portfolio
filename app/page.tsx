@@ -2,7 +2,7 @@ import Link from "next/link";
 import { GitHubSection } from "@/components/github";
 import { getProfile } from "@/lib/github";
 import { caseStudies, projects } from "@/data/projects";
-import { certifications, education, experience, links, skills } from "@/data/experience";
+import { certifications, education, experience, links, toolbox } from "@/data/experience";
 
 function SectionHeader({ id, kicker, title }: { id: string; kicker: string; title: string }) {
   return (
@@ -182,18 +182,20 @@ export default async function Home() {
 
       {/* Skills + Education */}
       <section className="mx-auto max-w-5xl px-5 py-20">
-        <SectionHeader id="skills" kicker="05 — Capabilities" title="Skills" />
-        <div className="grid gap-10 md:grid-cols-2">
-          {Object.entries(skills).map(([group, items]) => (
-            <div key={group}>
-              <h3 className="mb-4 font-mono text-xs uppercase tracking-widest text-muted">{group}</h3>
-              <div className="flex flex-wrap gap-2">
-                {items.map((s) => (
-                  <span key={s} className="rounded border border-border bg-panel px-3 py-1 font-mono text-xs text-foreground">
-                    {s}
-                  </span>
+        <SectionHeader id="skills" kicker="05 — Toolbox" title="What I work with" />
+        <div className="grid gap-4 sm:grid-cols-2">
+          {toolbox.map((t) => (
+            <div key={t.domain} className="rounded-lg border border-border bg-panel p-5">
+              <h3 className="mb-4 font-mono text-xs uppercase tracking-widest text-accent">
+                {t.domain}
+              </h3>
+              <ul className="space-y-2">
+                {t.tools.map((tool) => (
+                  <li key={tool} className="text-sm text-muted">
+                    <span className="text-accent">▸</span> {tool}
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>
