@@ -80,13 +80,13 @@ export default async function ProjectPage({ params }: PageProps<"/projects/[slug
             </div>
           ) : (
             <div className="grid gap-4">
-              {project.screenshots.map((src) => (
+              {project.screenshots.map((s) => (
                 <Image
-                  key={src}
-                  src={src}
+                  key={s.src}
+                  src={s.src}
                   alt={`${project.name} screenshot`}
-                  width={1440}
-                  height={900}
+                  width={s.w}
+                  height={s.h}
                   className="h-auto w-full rounded-lg border border-border"
                 />
               ))}

@@ -11,7 +11,7 @@ export type Project = {
   approach: string;
   capabilities: string[];
   outcome: string;
-  screenshots: string[]; // paths under /public
+  screenshots: { src: string; w: number; h: number }[]; // paths under /public
 };
 
 export const projects: Project[] = [
@@ -53,12 +53,14 @@ export const projects: Project[] = [
       "A FastAPI + React platform that aggregates ransomware-group activity and enriches it with AI-driven analysis, built for day-to-day use by incident-response and intelligence teams.",
     capabilities: [
       "Ransomware group and victim tracking across OSINT and dark-web sources",
+      "Automated per-group intelligence reports — victimology, top sectors and countries",
+      "On-chain financial intelligence: ransom in/out, chain breakdown, monthly activity",
       "AI-assisted enrichment and summarization of threat-actor activity",
       "Structured intelligence output for briefings and incident response",
     ],
     outcome:
       "In active use for ransomware research and incident support at a Tel-Aviv intelligence firm.",
-    screenshots: [],
+    screenshots: [{ src: "/screenshots/ctire-financial.png", w: 1425, h: 993 }],
   },
   {
     slug: "sanctions-clearance-agent",
@@ -125,7 +127,7 @@ export const projects: Project[] = [
     ],
     outcome:
       "Headline finding: model identity beats prompt language — what a model volunteers depends on which model it is, far more than on the language of the question. The live explorer re-runs the headline statistic in your browser over any slice of languages and models you pick.",
-    screenshots: ["/screenshots/gsb-explore.png"],
+    screenshots: [{ src: "/screenshots/gsb-explore.png", w: 1440, h: 900 }],
   },
   {
     slug: "hokwatch-knesset-legislation",
@@ -149,7 +151,7 @@ export const projects: Project[] = [
     ],
     outcome:
       "Live at hok-b-seder.com — data layer, public site, and a self-updating AI explanation pipeline that refreshes plain-language summaries daily.",
-    screenshots: ["/screenshots/hokwatch-home.png"],
+    screenshots: [{ src: "/screenshots/hokwatch-home.png", w: 1440, h: 900 }],
   },
 ];
 
