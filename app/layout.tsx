@@ -13,11 +13,11 @@ const jbMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Itai Raz — Fraud & Data Researcher",
+  title: "Itai Raz · Fraud & Data Researcher",
   description:
     "Cyber threat intelligence, blockchain forensics and adversarial AI evaluation. I trace money, actors, and model failures.",
   openGraph: {
-    title: "Itai Raz — Fraud & Data Researcher",
+    title: "Itai Raz · Fraud & Data Researcher",
     description:
       "Cyber threat intelligence, blockchain forensics and adversarial AI evaluation.",
     type: "website",
