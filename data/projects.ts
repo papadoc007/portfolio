@@ -150,6 +150,8 @@ export const projects: Project[] = [
   },
 ];
 
+export type Tone = "neutral" | "ok" | "warn" | "danger";
+
 export type CaseStudy = {
   slug: string;
   fileNo: string;
@@ -158,9 +160,13 @@ export type CaseStudy = {
   period: string;
   classification: string;
   summary: string;
+  stats?: { label: string; value: string; tone?: Tone }[];
+  targets?: { name: string; tag: string; note: string }[];
+  vectors?: { no: string; name: string; desc: string; tone: Tone; tags?: string[] }[];
   flow?: { label: string; sub: string }[];
   method: string[];
   findings: { label: string; value: string }[];
+  directives?: string[];
   deliverables: string[];
 };
 
@@ -175,6 +181,12 @@ export const caseStudies: CaseStudy[] = [
     classification: "SANITIZED FOR PUBLIC RELEASE — no client data, no addresses",
     summary:
       "In May 2022, a victim sent two transfers to an unidentified counterparty within 11 minutes: 0.4806 BTC (≈$14,156) at 18:42 and 600 USDT on Ethereum (≈$608) at 18:53 — $14,764 total. Four years later, both flows were reconstructed hop-by-hop across two chains. Both terminated at custodial exchanges that enforce identity verification: the funds reached accounts that a legal process can put a name to.",
+    stats: [
+      { label: "Total traced", value: "$14,764", tone: "neutral" },
+      { label: "Chains", value: "2", tone: "neutral" },
+      { label: "Time apart", value: "11 min", tone: "warn" },
+      { label: "Terminal points", value: "2 KYC", tone: "ok" },
+    ],
     flow: [
       { label: "Victim wallets", sub: "BTC + ETH" },
       { label: "Counterparty", sub: "2 transfers · 11 min apart" },
@@ -209,6 +221,45 @@ export const caseStudies: CaseStudy[] = [
     classification: "CLIENT CONFIDENTIAL — methodology and aggregate numbers only",
     summary:
       "Designed and executed an adversarial evaluation program against frontier LLM agents operating in enterprise workflows. Scenarios covered prompt injection (direct and indirect), tool misuse, permission-boundary violations and workflow safety — each with breaker variants and negative controls to catch over-refusal. 779 documented runs across GPT, Claude and Gemini model families, scored by LLM-as-a-Judge and re-verified by human transcript review.",
+    stats: [
+      { label: "Documented runs", value: "779", tone: "neutral" },
+      { label: "Model families", value: "3", tone: "neutral" },
+      { label: "Attack surfaces", value: "4", tone: "warn" },
+      { label: "Verdict source", value: "Human-verified", tone: "ok" },
+    ],
+    targets: [
+      { name: "GPT family", tag: "OpenAI", note: "Agentic tool-use configuration with code execution and API access." },
+      { name: "Claude family", tag: "Anthropic", note: "Boundary-adherence system prompts in a sandboxed environment." },
+      { name: "Gemini family", tag: "Google", note: "Multi-modal inputs with external datastore integration." },
+    ],
+    vectors: [
+      {
+        no: "VECTOR_01",
+        name: "Prompt Injection",
+        desc: "Direct and indirect payloads engineered to override system instructions, leak hidden context, or push the agent into a malicious persona.",
+        tone: "danger",
+        tags: ["direct", "indirect"],
+      },
+      {
+        no: "VECTOR_02",
+        name: "Tool Misuse",
+        desc: "Exploiting semantic ambiguity to coerce the agent into calling sensitive tools with unauthorized parameters.",
+        tone: "warn",
+        tags: ["REPL", "SQL_EXEC"],
+      },
+      {
+        no: "VECTOR_03",
+        name: "Permission Boundaries",
+        desc: "Gradual multi-turn context manipulation aimed at drifting the agent past its authorization limits.",
+        tone: "warn",
+      },
+      {
+        no: "VECTOR_04",
+        name: "Workflow Safety + Negative Controls",
+        desc: "Benign look-alike prompts paired with each attack to measure over-refusal and false positives, not just breaks.",
+        tone: "ok",
+      },
+    ],
     method: [
       "Scenario engineering: breaker variants + negative (false-positive) controls per attack pattern",
       "Execution across three frontier model families in agentic tool-use settings",
@@ -220,6 +271,11 @@ export const caseStudies: CaseStudy[] = [
       { label: "Model families", value: "GPT · Claude · Gemini" },
       { label: "Attack surfaces", value: "Prompt injection · tool misuse · permission boundaries · workflow safety" },
       { label: "Judge reliability", value: "Automated judge verdicts flipped on identical transcripts across repeated passes — final verdicts were read from transcripts, not from the judge" },
+    ],
+    directives: [
+      "Enforce hard-coded schema validation on every tool bridge — never trust the model to emit sanitized parameters.",
+      "Run a second, isolated LLM-as-Judge on the output stream, but treat it as a flag, not a verdict — every call is human-confirmed from the transcript.",
+      "Execute REPL and shell tools inside ephemeral, restricted-permission containers.",
     ],
     deliverables: [
       "Scenario packs with scoring rubrics",
@@ -237,6 +293,12 @@ export const caseStudies: CaseStudy[] = [
     classification: "THREAT-ACTOR PROFILE — from my original CTI report; raw IOCs withheld here",
     summary:
       "Eleven Drainer surfaced in late 2025 and drained over $4.2M within three weeks. I built a full threat-actor profile: tracked the operators across the XSS cybercrime forum, Telegram and X; translated their Russian-language advertisements; reconstructed the event timeline from first ENS activity through the Aerodrome/Velodrome DNS-hijacking incident; and verified the advertised affiliate revenue split against actual on-chain distributions. The advertised 15–20% operator fee matched the recorded splits — hard on-chain corroboration of the DaaS business model, supporting a High-confidence attribution.",
+    stats: [
+      { label: "Stolen (3 weeks)", value: "$4.2M+", tone: "danger" },
+      { label: "Operator fee", value: "15–20%", tone: "warn" },
+      { label: "Origin", value: "RU / CIS", tone: "neutral" },
+      { label: "Attribution", value: "High conf.", tone: "ok" },
+    ],
     flow: [
       { label: "Victim wallet", sub: "phishing / dApp clone" },
       { label: "Drainer toolkit", sub: "'Eleven Priority' asset logic" },
@@ -272,6 +334,12 @@ export const caseStudies: CaseStudy[] = [
     classification: "SANITIZED FOR PUBLIC RELEASE — client, counterparty and addresses withheld",
     summary:
       "A client asked for a forensic profile of a single Ethereum address tied to a contractual dispute. Combining TRM Labs analysis with bulk transfer-log processing (30,000+ records), the address resolved into a high-volume distribution hub: $305M across 28,625+ transfers in roughly 25 months, rated SEVERE with 26 risk indicators. First-funding analysis exposed a three-layer funding chain in which every layer traces back to one Binance exchange account. Counterparties included major regulated exchanges and payment processors — all holding KYC records reachable by legal process. Separately, 14 payments totaling $6.06M to the counterparty in the client's dispute were verified on-chain, with dates aligning to the dispute timeline.",
+    stats: [
+      { label: "Total volume", value: "$305M", tone: "neutral" },
+      { label: "Transfers", value: "28,625+", tone: "neutral" },
+      { label: "TRM risk", value: "SEVERE", tone: "danger" },
+      { label: "Dispute payments", value: "$6.06M", tone: "warn" },
+    ],
     flow: [
       { label: "Binance account", sub: "single origin of the chain" },
       { label: "Layer 1", sub: "$8.3M volume" },
